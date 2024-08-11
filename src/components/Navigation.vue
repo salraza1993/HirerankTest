@@ -63,10 +63,10 @@ function shiftDownHandler(index) {
     </div>
   </div>
 </template>
-<style>
+<style scoped>
   .navigation-card {
     width: 100%;
-    background-color: #fff;
+    background-color: #ffffff;
     max-width: 1000px;
     display: grid;
     grid-template-columns: 1fr minmax(200px, 400px);
@@ -75,12 +75,13 @@ function shiftDownHandler(index) {
     width: 100%;
     height: 100%;
     overflow: hidden;
-  }
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
   }
   .content {
     padding: 1.5vw;
@@ -93,6 +94,7 @@ function shiftDownHandler(index) {
     display: grid;
 
   }
+  .location-list {}
   .location-list__item {
     --list-height: 45px;
     width: 100%;
@@ -100,47 +102,48 @@ function shiftDownHandler(index) {
     display: flex;
     align-items: center;
     gap: 10px;  
+    .text {
+      border-block-end: 1px solid #ccc; 
+    };
+    .arrows {
+      display: flex;
+      flex-shrink: 0;
+      gap: 0.1rem;
+      margin-inline-start: auto;
+      .icon {
+        width: var(--list-height);
+        height: var(--list-height);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+    .dot {
+      position: relative;
+      display: flex;
+      justify-content: center;
+  
+      .ellipsis {
+        position: absolute;
+        inset-block-start: calc(100% + 2px);
+  
+        img {
+          width: 10px;
+          height: 25px;
+        }
+      }
+    }
+    img,
+    svg {
+      display: block;
+      /* max-width: 15px; */
+      /* width: 15px; */
+    }
   }
-  .text {
-    border-block-end: 1px solid #ccc; 
-  };
-  .arrows {
-    display: flex;
-    flex-shrink: 0;
-    gap: 0.1rem;
-    margin-inline-start: auto;
-  }
-  .icon {
-    width: var(--list-height);
-    height: var(--list-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: 0.25rem;
-  }
-  .icon:hover {
-    background-color: #f5f5f5;
-  }
-  .dot {
-    position: relative;
-    display: flex;
-    justify-content: center;
 
-  }
-  .ellipsis {
-    position: absolute;
-    inset-block-start: calc(100% + 2px);
-  }
-  .ellipsis img {
-    width: 10px;
-    height: 25px;
-  }
-
-  img,
-  svg {
-    display: block;
-    max-width: 15px;
-    width: 15px;
-  }
 </style>
