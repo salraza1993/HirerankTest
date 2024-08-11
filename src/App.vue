@@ -16,9 +16,13 @@ const locations = ref([
   'Alcatraz Island, San Francisco, CA, USA'
 ]);
 
-onMounted(() => {
-  axios.get('https://jsonplaceholder.typicode.com/users')
-    .then(response => sortedData.value = response.data);
+onMounted(async () => {
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+    sortedData.value = response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 });
 
 function sortData(column) {
