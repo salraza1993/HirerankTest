@@ -1,0 +1,19 @@
+body {
+  background-color: #e6e6e6;
+}
+#app {
+  margin: 0 auto;
+
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  padding: 2vw;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+}
