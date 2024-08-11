@@ -6,8 +6,8 @@ import { ref } from 'vue';
 import Navigation from './components/Navigation.vue';
 const columns = ['id', 'name', 'username', 'email'];
 let sortedData = ref([]);
-let sortOrder = ref(null);
-let sortColumns = ref(null);
+let sortOrder = ref('asc');
+let sortColumns = ref('');
 const locations = ref([
   'Lombard St, San Francisco, CA, USA',
   'PIER 39, The Embarcadero, San Francisco, CA, USA',
@@ -26,11 +26,11 @@ onMounted(async () => {
 });
 
 function sortData(column) {
-  if (sortedData.value === column) {
-    sortOrder.value = sortOrder.value === 'asc' ? 'asc' : 'desc';
+  if (sortColumns.value === column) {
+    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
   } else {
     sortColumns.value = column;
-    sortOrder = "asc";
+    sortOrder.value = "asc";
   }
 
   sortedData.value.sort((a, b) => {
